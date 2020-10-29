@@ -82,7 +82,7 @@ public class ProductMockMvcTest {
         MvcResult phoneResult =
                 mockMvc
                         .perform(
-                                get("/product").queryParam("color", "silver"))
+                                get("/product").queryParam("property:color", "silver"))
                         .andExpect(status().isOk())
                         .andReturn();
         List<Product> products =
@@ -99,7 +99,7 @@ public class ProductMockMvcTest {
                         .perform(
                                 get("/product")
                                         .queryParam("type", "phone")
-                                        .queryParam("color", "silver"))
+                                        .queryParam("property:color", "silver"))
                         .andExpect(status().isOk())
                         .andReturn();
         List<Product> products =
@@ -117,7 +117,7 @@ public class ProductMockMvcTest {
                         .perform(
                                 get("/product")
                                         .queryParam("type", "phone")
-                                        .queryParam("color", "silver")
+                                        .queryParam("property:color", "silver")
                                         .queryParam("min_price", "500"))
                         .andExpect(status().isOk())
                         .andReturn();
@@ -137,7 +137,7 @@ public class ProductMockMvcTest {
                         .perform(
                                 get("/product")
                                         .queryParam("type", "phone")
-                                        .queryParam("color", "silver")
+                                        .queryParam("property:color", "silver")
                                         .queryParam("min_price", "500")
                                         .queryParam("max_price", "700"))
                         .andExpect(status().isOk())
@@ -158,7 +158,7 @@ public class ProductMockMvcTest {
                         .perform(
                                 get("/product")
                                         .queryParam("type", "phone")
-                                        .queryParam("color", "vit")
+                                        .queryParam("property:color", "vit")
                                         .queryParam("min_price", "500")
                                         .queryParam("max_price", "700")
                                         .queryParam("city", "Stockholm"))
@@ -182,8 +182,8 @@ public class ProductMockMvcTest {
                         .perform(
                                 get("/product")
                                         .queryParam("type", "subscription")
-                                        .queryParam("gb_limit_min", "15")
-                                        .queryParam("gb_limit_max", "100")
+                                        .queryParam("property:gb_limit_min", "15")
+                                        .queryParam("property:gb_limit_max", "100")
                                         .queryParam("city", "Stockholm"))
                         .andExpect(status().isOk())
                         .andReturn();

@@ -1,6 +1,5 @@
 package demo.product.api;
 
-import com.google.common.collect.ImmutableMap;
 import demo.product.application.ProductService;
 import demo.product.domain.Data;
 import demo.product.domain.Product;
@@ -23,13 +22,13 @@ public class ProductController {
 
     @GetMapping
     private ResponseEntity getProducts(@RequestParam(required = false) ProductType type,
-                                             @RequestParam(name = "min_price",required = false) Integer minPrice,
-                                             @RequestParam(name = "max_price",required = false) Integer maxPrice,
-                                             @RequestParam(required = false) String city,
-                                             @RequestParam(required = false) PropertyType propertyType,
-                                             @RequestParam(required = false) String color,
-                                             @RequestParam(name = "gb_limit_min",required = false) Integer minGbLimit,
-                                             @RequestParam(name = "gb_limit_max",required = false) Integer maxGbLimit
+                                       @RequestParam(name = "min_price", required = false) Integer minPrice,
+                                       @RequestParam(name = "max_price", required = false) Integer maxPrice,
+                                       @RequestParam(required = false) String city,
+                                       @RequestParam(name = "property", required = false) PropertyType propertyType,
+                                       @RequestParam(name = "property:color", required = false) String color,
+                                       @RequestParam(name = "property:gb_limit_min", required = false) Integer minGbLimit,
+                                       @RequestParam(name = "property:gb_limit_max", required = false) Integer maxGbLimit
     ) {
         List<Product> products = productService.getProducts(type, minPrice, maxPrice, city, propertyType,
                 color, minGbLimit, maxGbLimit);
